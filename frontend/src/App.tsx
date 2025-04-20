@@ -53,7 +53,7 @@ function StoreApp(){
           loading : false,
         })
           // No user is signed in.
-          console.log('There is no logged in user');
+          // console.log('There is no logged in user');
       }
   });
   },[])
@@ -77,7 +77,7 @@ return (
                   <Route path="/about" element={<About/>} />
                   <Route path="/activity" element={<Submissions/>} />
                   <Route path="/problemlist" element={<ProblemList />} />
-                  <Route path="/problems/:problemId" element={<BlankPage />} />
+                  <Route path="/problems/:pid" element={<BlankPage />} />
                 </Routes>
             </Router>
               

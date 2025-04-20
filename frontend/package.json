@@ -14,7 +14,8 @@
     "@supabase/supabase-js": "^2.45.6",
     "@uiw/codemirror-theme-vscode": "^4.23.7",
     "@uiw/react-codemirror": "^4.23.7",
-    "firebase": "^10.14.0",
+    "assert": "^2.1.0",
+    "firebase": "^11.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
@@ -36,6 +37,6 @@
     "tailwindcss": "^3.4.13",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.7.0",
-    "vite": "^5.4.8"
+    "vite": "^6.2.6"
   }
 }

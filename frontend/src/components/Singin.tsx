@@ -17,12 +17,12 @@ export const Signin = () => {
         const token = credential.accessToken;
         const user = result.user;
 
-      console.log("User signed in:", user, "Token:", token);
+      // console.log("User signed in:", user, "Token:", token);
       })
       .catch((error) => {
         // Handle Errors here.
         setError(error.message); // Set the error message to state
-        console.error("Error during sign-in:", error);
+        // console.error("Error during sign-in:", error);
       });
 
   }

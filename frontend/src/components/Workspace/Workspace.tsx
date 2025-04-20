@@ -1,14 +1,20 @@
 import Split from "react-split"
-import { ProblemDecscription } from "./ProblemDescripion"
 import { Playground } from "./Playground/Playground"
+import { ProblemDecscription } from "./ProblemDescripion"
+import { problem } from "../../utils/types/problem"
 
-export const Workspace = () =>{
+type   WorkspaceProps={
+    problem : problem,
+};
+
+export const Workspace = ({problem}) =>{
     return(
        <Split className="split">
-        <ProblemDecscription />
+        <ProblemDecscription problem={problem}/>
         <div className="h-screen"> <Playground/></div>
 
        </Split>
 
     )
 }
+
