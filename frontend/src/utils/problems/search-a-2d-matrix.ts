@@ -1,5 +1,5 @@
 import assert from "assert";
-import { problem } from "../types/problem";
+import { Problem } from "../types/problem";
 
 const starterCodeSearch2DMatrix = `function searchMatrix(matrix, target) {
   // Write your code here
@@ -64,7 +64,7 @@ const handlerSearch2DMatrix = (fn: any) => {
     }
 };
 
-export const search2DMatrix: problem = {
+export const search2DMatrix: Problem = {
     id: 'search-a-2d-matrix',
     title: "74. Search a 2D Matrix",
     problemStatement: `<p class='mt-3'>

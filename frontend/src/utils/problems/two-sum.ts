@@ -1,5 +1,5 @@
 import assert from "assert"; 
-import { problem } from "../types/problem";
+import { Problem, } from "../types/problem";
 
 
 
@@ -36,7 +36,7 @@ const hanlerTwoSum  = (fn:any) =>{
 
 
 
-export const twoSum : problem = {
+export const twoSum : Problem = {
     id : 'two-sum',
     title : "1. Two Sum",
     problemStatement:`<p className='mt-3'>

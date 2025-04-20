@@ -28,15 +28,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
+
+
+
 function App() {
  // const [count, setCount] = useState(0);
   return <RecoilRoot>
-     <StoreApp/>
+     <StoreApp />
   </RecoilRoot>
 }
 
 function StoreApp(){
-  const [user,setuser] = useRecoilState(userAtom);
+    const [user,setuser] = useRecoilState(userAtom);
   useEffect(()=>{
     onAuthStateChanged( auth ,function(user) {
      

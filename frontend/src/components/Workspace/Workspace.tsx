@@ -3,18 +3,22 @@ import { Playground } from "./Playground/Playground"
 import { ProblemDecscription } from "./ProblemDescripion"
 import { problem } from "../../utils/types/problem"
 
-type   WorkspaceProps={
-    problem : problem,
-};
+type WorkspaceProps = {
+    problem : problem
+}
 
-export const Workspace = ({problem}) =>{
+
+
+export const Workspace :React.FC<WorkspaceProps>= (problem) =>{
     return(
        <Split className="split">
-        <ProblemDecscription problem={problem}/>
+        <ProblemDecscription problem={problem.problem}/>
+        
         <div className="h-screen"> <Playground/></div>
 
        </Split>
 
     )
 }
+
 

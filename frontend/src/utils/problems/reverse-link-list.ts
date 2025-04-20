@@ -1,5 +1,5 @@
 import assert from "assert";
-import { problem } from "../types/problem";
+import { Problem, } from "../types/problem";
 
 // Define the ListNode type
 interface ListNode {
@@ -79,7 +79,7 @@ const handlerReverseLinkedList = (fn: any) => {
     }
 };
 
-export const reverseLinkedList: problem = {
+export const reverseLinkedList: Problem = {
     id: 'reverse-linked-list',
     title: "206. Reverse Linked List",
     problemStatement: `<p class='mt-3'>

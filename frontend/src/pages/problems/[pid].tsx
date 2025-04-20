@@ -1,19 +1,18 @@
 import React from "react";
 import { Workspace } from "../../components/Workspace/Workspace";
-import { problems } from "../../utils/problems";
+import { Topbar } from "../../components/Topbar";
+import problems from "../../utils/problems";
 import { problem } from "../../utils/types/problem";
 
+type ProblemProps = {
+    problem: problem
+}
 
-
-type ProblempageProps = {
-        problem : problem
-};
-
-const Problempage: React.FC<ProblempageProps> = () => {
+const Problempage:React.FC<ProblemProps>= (problem) => {
     return (
         <div className="text-100px">
-            <Topbar problempage/>
-            <Workspace/>
+            <Topbar />
+            <Workspace problem={problem.problem}/>
         </div>
     );
 };
@@ -35,6 +34,24 @@ export async function getStaticprop({params}:{params:{pid:string}}) {
     const {pid} = params;
     const problem = problems[pid];
     
+    if(!problem){
+        return{
+            notfound : true,
+        }
+
+    }
+    problem.handlerFunction = problem.handlerFunction.toString();
+    return{
+        props:{
+            problem,
+        }
+    }
+}
+ export async function getServerSideProps(context:any) {
+    const {params} = context;
+    const {pid} = params;
+    const problem = problems[pid];
+
     if(!problem){
         return{
             notfound : true,

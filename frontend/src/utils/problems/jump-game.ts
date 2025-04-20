@@ -29,7 +29,7 @@ const handlerJumpGame = (fn: any) => {
 
 export const jumpGame: problem = {
     id: 'jump-game',
-    title: "55. Jump Game",
+    title: " Jump Game",
     problemStatement: `<p class='mt-3'>
         You are given an integer array <code>nums</code>. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
     </p>

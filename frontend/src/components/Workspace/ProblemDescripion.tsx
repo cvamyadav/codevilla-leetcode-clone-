@@ -1,8 +1,14 @@
 import { AiFillDislike, AiFillLike } from "react-icons/ai"
 import { BsCheck2Circle } from "react-icons/bs"
 import { TiStarOutline } from "react-icons/ti"
+import { problem } from "../../utils/types/problem"
 
-export const ProblemDecscription =() =>{
+type ProblemDecscriptionProps = {
+	problem : problem;
+};
+
+export const ProblemDecscription: React.FC<ProblemDecscriptionProps>=({problem}) =>{
+	
     return(
         <div className='bg-dark-layer-1 '>
 			{/* TAB */}
@@ -17,7 +23,7 @@ export const ProblemDecscription =() =>{
 					{/* Problem heading */}
 					<div className='w-full'>
 						<div className='flex space-x-4'>
-							<div className='flex-1 mr-2 text-lg text-black font-medium'>1. Two Sum</div>
+							<div className='flex-1 mr-2 text-lg text-black font-medium'>{problem.title}</div>
 						</div>
 						<div className='flex items-center mt-3'>
 							<div
@@ -120,3 +126,4 @@ export const ProblemDecscription =() =>{
     )
 }
 
+export default ProblemDecscription;

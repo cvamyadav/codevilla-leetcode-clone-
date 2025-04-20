@@ -1,5 +1,5 @@
 import assert from "assert";
-import { problem } from "../types/problem";
+import { Problem } from "../types/problem";
 
 const starterCodeValidParentheses = `function isValid(s) {
   // Write your code here
@@ -30,7 +30,7 @@ const handlerValidParentheses = (fn: any) => {
     }
 };
 
-export const validParentheses: problem = {
+export const validParentheses: Problem = {
     id: 'valid-parentheses',
     title: "20. Valid Parentheses",
     problemStatement: `<p class='mt-3'>

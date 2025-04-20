@@ -1,4 +1,7 @@
+
 export const About = () => {
+
+
     return <div className="shadow-lg m-10 ">
         <h1 className="text-xl font-medium my-2 flex justify-center bold items-center">About</h1>
         <p>
