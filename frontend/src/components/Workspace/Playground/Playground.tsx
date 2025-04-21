@@ -1,8 +1,8 @@
 import CodeMirror from "@uiw/react-codemirror"
-import { Prefrencenav } from "./Prefrencenav/Prefrencenav"
 import Split from "react-split"
 import { vscodeLight } from "@uiw/codemirror-theme-vscode"
 import { javascript } from "@codemirror/lang-javascript"
+import { Prefrencenav } from "./Prefrencenav/Prefrencenav"
 
 export const Playground = () =>{
     const boilerPlate = `function twoSum(nums, target){
@@ -83,3 +83,4 @@ export const Playground = () =>{
         </div>
     )
 }
+

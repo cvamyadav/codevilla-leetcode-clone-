@@ -14,6 +14,7 @@ import { Submissions } from './components/Submissions';
 import { About } from './components/About';
 import { ProblemList } from './components/ProblemList';
 import { BlankPage } from './components/BlankPage';
+import { problem } from './utils/types/problem';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA621pXulqeiLcAf7ZAHEW3yhUw4dxraVs",
@@ -38,7 +39,7 @@ function App() {
   </RecoilRoot>
 }
 
-function StoreApp(){
+ function StoreApp (){
     const [user,setuser] = useRecoilState(userAtom);
   useEffect(()=>{
     onAuthStateChanged( auth ,function(user) {
@@ -80,7 +81,7 @@ return (
                   <Route path="/about" element={<About/>} />
                   <Route path="/activity" element={<Submissions/>} />
                   <Route path="/problemlist" element={<ProblemList />} />
-                  <Route path="/problems/:pid" element={<BlankPage />} />
+                  <Route path="/problems/:id" element={<BlankPage />} />
                 </Routes>
             </Router>
               

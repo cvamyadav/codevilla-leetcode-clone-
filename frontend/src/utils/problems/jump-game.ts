@@ -27,7 +27,8 @@ const handlerJumpGame = (fn: any) => {
     }
 };
 
-export const jumpGame: problem = {
+export const jumpGame: problem[] = [
+    {
     id: 'jump-game',
     title: " Jump Game",
     problemStatement: `<p class='mt-3'>
@@ -66,4 +67,5 @@ export const jumpGame: problem = {
     order: 3,
     handlerFunction: handlerJumpGame,
     starterFunctionName: "function canJump(",
-};
+}
+];

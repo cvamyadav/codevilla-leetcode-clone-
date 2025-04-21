@@ -1,5 +1,5 @@
 import assert from "assert"; 
-import { Problem, } from "../types/problem";
+import { problem } from "../types/problem";
 
 
 
@@ -36,8 +36,9 @@ const hanlerTwoSum  = (fn:any) =>{
 
 
 
-export const twoSum : Problem = {
-    id : 'two-sum',
+export const twoSum : problem[] = [
+    {
+        id : 'two-sum',
     title : "1. Two Sum",
     problemStatement:`<p className='mt-3'>
 								Given an array of integers <code>nums</code> and an integer <code>target</code>, return
@@ -85,5 +86,5 @@ constraints :`<li className='mt-2'>
 starterCode: startercodetwosum,
 order:1,
 handlerFunction : hanlerTwoSum,
-starterFunctionName :"function twosum (",
-};
+starterFunctionName :"function twosum (",}
+];

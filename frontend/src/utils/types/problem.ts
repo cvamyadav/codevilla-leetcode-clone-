@@ -1,4 +1,24 @@
-export type Example ={
+// export type Example ={
+//     id:number ;
+//     inputText : string;
+//     outputText : string;
+//     explanation ?: string;
+//     img ?: string;
+// };
+
+// export type problem = {
+//     id : string;
+//     title : string ;
+//     problemStatement : string;
+//     examples : Example[];
+//     constraints : string;
+//     order : number;
+//     starterCode : string;
+//     handlerFunction : ((fn:any)=>boolean)| string;
+//     starterFunctionName :string;
+// };
+
+export type Example = {
     id:number ;
     inputText : string;
     outputText : string;
@@ -6,7 +26,7 @@ export type Example ={
     img ?: string;
 };
 
-export type problem = {
+export type problem = [{
     id : string;
     title : string ;
     problemStatement : string;
@@ -16,4 +36,5 @@ export type problem = {
     starterCode : string;
     handlerFunction : ((fn:any)=>boolean)| string;
     starterFunctionName :string;
-};
+}];
+

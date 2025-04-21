@@ -28,4 +28,5 @@ export const Prefrencenav = () =>{
 			</div>
 		</div>
     )
-}
+};
+

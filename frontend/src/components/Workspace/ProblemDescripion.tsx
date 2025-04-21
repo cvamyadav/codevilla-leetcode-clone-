@@ -1,14 +1,16 @@
 import { AiFillDislike, AiFillLike } from "react-icons/ai"
 import { BsCheck2Circle } from "react-icons/bs"
 import { TiStarOutline } from "react-icons/ti"
-import { problem } from "../../utils/types/problem"
+import { useParams } from "react-router-dom"
+import { index } from "../../utils/problems"
+import { Problems } from "../Problem"
 
-type ProblemDecscriptionProps = {
-	problem : problem;
-};
 
-export const ProblemDecscription: React.FC<ProblemDecscriptionProps>=({problem}) =>{
-	
+
+export const ProblemDecscription = () =>{
+	  const { id } = useParams<{ id: string }>();
+  
+	  const problem = index.find((problem) => problem.id === id);
     return(
         <div className='bg-dark-layer-1 '>
 			{/* TAB */}
@@ -23,13 +25,13 @@ export const ProblemDecscription: React.FC<ProblemDecscriptionProps>=({problem})
 					{/* Problem heading */}
 					<div className='w-full'>
 						<div className='flex space-x-4'>
-							<div className='flex-1 mr-2 text-lg text-black font-medium'>{problem.title}</div>
+							<div className='flex-1 mr-2 text-lg text-black font-medium'>{problem?.title}</div>
 						</div>
 						<div className='flex items-center mt-3'>
 							<div
 								className={`text-olive bg-olive inline-block rounded-[21px] bg-opacity-[.15] px-2.5 py-1 text-xs font-medium capitalize `}
 							>
-								Easy
+								medium
 							</div>
 							<div className='rounded p-[3px] ml-4 text-lg transition-colors duration-200 text-green-s text-dark-green-s'>
 								<BsCheck2Circle />
@@ -127,3 +129,4 @@ export const ProblemDecscription: React.FC<ProblemDecscriptionProps>=({problem})
 }
 
 export default ProblemDecscription;
+

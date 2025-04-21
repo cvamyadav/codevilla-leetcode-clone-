@@ -1,5 +1,6 @@
 import assert from "assert";
-import { Problem } from "../types/problem";
+import { problem } from "../types/problem";
+
 
 const starterCodeSearch2DMatrix = `function searchMatrix(matrix, target) {
   // Write your code here
@@ -64,8 +65,8 @@ const handlerSearch2DMatrix = (fn: any) => {
     }
 };
 
-export const search2DMatrix: Problem = {
-    id: 'search-a-2d-matrix',
+export const search2DMatrix: problem[] = [
+    {    id: 'search-a-2d-matrix',
     title: "74. Search a 2D Matrix",
     problemStatement: `<p class='mt-3'>
         Write an efficient algorithm that searches for a value <code>target</code> in an <code>m x n</code> integer matrix <code>matrix</code>. This matrix has the following properties:
@@ -110,4 +111,5 @@ export const search2DMatrix: Problem = {
     order: 5,
     handlerFunction: handlerSearch2DMatrix,
     starterFunctionName: "function searchMatrix(",
-};
+}
+];
