@@ -11,7 +11,7 @@ export const Landing =()=>{
               Your ultimate destination to solve programming challenges and enhance your coding skills.
             </p>
             <a
-              href="/problemlist"
+              href="/about"
               className="px-6 py-3 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition"
             >
               Get Started
