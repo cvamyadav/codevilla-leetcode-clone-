@@ -1,13 +1,12 @@
-import assert from "assert";
-import { problem } from "../types/problem";
+
 
 // Define the ListNode type
-interface ListNode {
+ export interface ListNode {
     val: number;
     next: ListNode | null;
 }
 
-const starterCodeReverseLinkedList = `/**
+export const starterCodeReverseLinkedList = `/**
 * Definition for singly-linked list.
 * function ListNode(val, next) {
 *     this.val = (val===undefined ? 0 : val)
@@ -18,15 +17,13 @@ function reverseList(head) {
   // Write your code here
 };`;
 
-const handlerReverseLinkedList = (fn: any) => {
+export const handlerReverseLinkedList = (fn: any) => {
     try {
         // Helper function to create linked list from array
         const createLinkedList = (arr: number[]): ListNode | null => {
             if (arr.length === 0) return null;
-            
             const head: ListNode = { val: arr[0], next: null };
-            let current: ListNode = head;
-            
+            let current = head;
             for (let i = 1; i < arr.length; i++) {
                 current.next = { val: arr[i], next: null };
                 current = current.next;
@@ -37,9 +34,8 @@ const handlerReverseLinkedList = (fn: any) => {
         // Helper function to convert linked list to array
         const linkedListToArray = (head: ListNode | null): number[] => {
             const arr: number[] = [];
-            let current: ListNode | null = head;
-            
-            while (current !== null) {
+            let current = head;
+            while (current) {
                 arr.push(current.val);
                 current = current.next;
             }
@@ -47,39 +43,35 @@ const handlerReverseLinkedList = (fn: any) => {
         };
 
         const testCases = [
-            {
-                input: [1, 2, 3, 4, 5],
-                output: [5, 4, 3, 2, 1]
-            },
-            {
-                input: [1, 2],
-                output: [2, 1]
-            },
-            {
-                input: [],
-                output: []
-            },
-            {
-                input: [1],
-                output: [1]
-            }
+            { input: [1, 2, 3, 4, 5], output: [5, 4, 3, 2, 1] },
+            { input: [1, 2], output: [2, 1] },
+            { input: [], output: [] },
+            { input: [1], output: [1] }
         ];
 
         for (const testCase of testCases) {
             const inputList = createLinkedList(testCase.input);
             const result = fn(inputList);
             const resultArray = linkedListToArray(result);
-            assert.deepStrictEqual(resultArray, testCase.output);
+            
+            // Manual deep equality check
+            if (JSON.stringify(resultArray) !== JSON.stringify(testCase.output)) {
+                throw new Error(
+                    `Test failed for input ${JSON.stringify(testCase.input)}\n` +
+                    `Expected: ${JSON.stringify(testCase.output)}\n` +
+                    `Received: ${JSON.stringify(resultArray)}`
+                );
+            }
         }
 
         return true;
     } catch (error: any) {
         console.error("Error from handlerReverseLinkedList:", error);
-        throw new Error(error);
+        throw new Error(error.message);
     }
 };
 
-export const reverseLinkedList: problem[] = [{
+export const reverseLinkedList = [{
     id: 'reverse-linked-list',
     title: "206. Reverse Linked List",
     problemStatement: `<p class='mt-3'>

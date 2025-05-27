@@ -1,11 +1,9 @@
-import assert from "assert";
-import { problem } from "../types/problem";
 
-const starterCodeJumpGame = `function canJump(nums) {
-  // Write your code here
+export const starterCodeJumpGame = `function canJump(nums) {
+ // Write your code here
 };`;
 
-const handlerJumpGame = (fn: any) => {
+export const handlerJumpGame = (fn: any) => {
     try {
         const testCases = [
             { input: [2,3,1,1,4], output: true },
@@ -17,17 +15,23 @@ const handlerJumpGame = (fn: any) => {
 
         for (const testCase of testCases) {
             const result = fn(testCase.input);
-            assert.strictEqual(result, testCase.output);
+            if (result !== testCase.output) {
+                throw new Error(
+                    `Test failed for input [${testCase.input}]\n` +
+                    `Expected: ${testCase.output}\n` +
+                    `Received: ${result}`
+                );
+            }
         }
 
         return true;
     } catch (error: any) {
         console.error("Error from handlerJumpGame:", error);
-        throw new Error(error);
+        throw new Error(error.message);
     }
 };
 
-export const jumpGame: problem[] = [
+export const jumpGame = [
     {
     id: 'jump-game',
     title: " Jump Game",

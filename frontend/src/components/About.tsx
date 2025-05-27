@@ -133,11 +133,19 @@ export const About = () => {
 
                 {/* CTA Button */}
                 <div className="text-center mt-16">
-                    <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <a href = "/problemlist "className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                         Start Your Coding Journey
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
     );
 }
+
+
+{/* <a
+              href="/problemlist"
+              className="px-6 py-3 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition"
+            >
+              Get Started
+            </a> */}

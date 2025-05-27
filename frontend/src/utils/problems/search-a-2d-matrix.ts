@@ -2,11 +2,11 @@ import assert from "assert";
 import { problem } from "../types/problem";
 
 
-const starterCodeSearch2DMatrix = `function searchMatrix(matrix, target) {
+export const starterCodeSearch2DMatrix = `function searchMatrix(matrix, target) {
   // Write your code here
 };`;
 
-const handlerSearch2DMatrix = (fn: any) => {
+export const handlerSearch2DMatrix = (fn: any) => {
     try {
         const testCases = [
             { 
@@ -55,17 +55,22 @@ const handlerSearch2DMatrix = (fn: any) => {
 
         for (const testCase of testCases) {
             const result = fn(testCase.input.matrix, testCase.input.target);
-            assert.strictEqual(result, testCase.output);
+            if (result !== testCase.output) {
+                throw new Error(
+                    `Test failed for matrix ${JSON.stringify(testCase.input.matrix)} with target ${testCase.input.target}\n` +
+                    `Expected: ${testCase.output}\n` +
+                    `Received: ${result}`
+                );
+            }
         }
 
         return true;
     } catch (error: any) {
         console.error("Error from handlerSearch2DMatrix:", error);
-        throw new Error(error);
+        throw new Error(error.message);
     }
 };
-
-export const search2DMatrix: problem[] = [
+export const search2DMatrix = [
     {    id: 'search-a-2d-matrix',
     title: "74. Search a 2D Matrix",
     problemStatement: `<p class='mt-3'>

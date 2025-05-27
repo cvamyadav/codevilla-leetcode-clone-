@@ -1,73 +1,35 @@
-// import { Link } from 'react-router-dom';
-
-// export const Topbar = () => {
-//     return (
-//         <div className="font-bold flex items-center gap-1 px-12 py-4 border-white" >
-//             <div className="size-12">
-//                 {/* <img src="fox.png" alt="fox" className="background-opacity-0" /> */}
-//             </div>
-//             <div className="">CODVILLA</div>
-//             <div className="px-80 font-medium">
-//                 <Navbar/>
-//             </div>
-//         </div>
-//     );
-// };
-
-// const TopbarItem = [
-//     {
-//         title:"About",
-//         route:"/about"
-//     },
-//     {
-//         title:"Activity",
-//         route:"/activity"
-//     },
-//     {
-//         title:"Leaderboad",
-//         route:"/leaderboad"
-//     },
-//     {
-//         title:"Problems",
-//         route:"/problemlist"
-//     },
-// ]
-
-// function Navbar(){
-//     return<div className="flex gap-10">
-//         {TopbarItem.map(item=><Navbaritem route={item.route} title={item.title}/>)}
-//     </div>
-// }
-// function Navbaritem ({title,route}:{
-
-//         title : string,
-//         route : string,
-// })
-// {
-//     return<Link to={route}>
-//         <div className="hover:text-zinc-600">
-//         {title}
-//     </div>
-//     </Link>
-    
-// }
-
-
+import { getAuth, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react'; // You can use any icons you prefer
+import { Sun, Moon, LogOut } from 'lucide-react'; // You can use any icons you prefer
 
 export const Topbar = () => {
+    const auth = getAuth();
+
+
+    function logout() {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      console.log("User signed out");
+    })
+    .catch((error) => {
+      // An error happened.
+      console.error("Error signing out:", error);
+    });
+}
+
+
     return (
         <div className="font-bold flex items-center gap-1 px-12 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             <div className="size-12">
-                <img src="fox.png" alt="fox" className="background-opacity-0" />
+                {/* <img src="fox.png" alt="fox" className="background-opacity-0" /> */}
             </div>
             <div className="text-blue-600 dark:text-blue-400">CODVILLA</div>
             <div className="px-80 font-medium">
                 <Navbar/>
             </div>
-            <ThemeToggle/>
+            {/* <ThemeToggle/> */}<div className="ml-auto flex items-center"><button className='hover:bg-red-600  rounded p-2 text-white' onClick={logout}>Logout</button></div>
         </div>
     );
 };
@@ -111,12 +73,17 @@ function ThemeToggle() {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
-        // Check for saved theme preference or system preference
-        const isDark = localStorage.getItem('theme') === 'dark' || 
-                      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        setDarkMode(isDark);
-        document.documentElement.classList.toggle('dark', isDark);
+     const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        const initialMode = savedTheme 
+            ? savedTheme === 'dark' 
+            : systemDark;
+            
+        setDarkMode(initialMode);
+        document.documentElement.classList.toggle('dark', initialMode);
     }, []);
+
 
     const toggleTheme = () => {
         const newMode = !darkMode;

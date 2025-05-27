@@ -1,11 +1,10 @@
-import assert from "assert";
-import { problem } from "../types/problem";
 
-const starterCodeValidParentheses = `function isValid(s) {
+
+export const starterCodeValidParentheses = `function isValid(s) {
   // Write your code here
 };`;
 
-const handlerValidParentheses = (fn: any) => {
+ export const handlerValidParentheses = (fn: any) => {
     try {
         const testCases = [
             { input: "()", output: true },
@@ -20,17 +19,23 @@ const handlerValidParentheses = (fn: any) => {
 
         for (const testCase of testCases) {
             const result = fn(testCase.input);
-            assert.strictEqual(result, testCase.output);
+            if (result !== testCase.output) {
+                throw new Error(
+                    `Test failed for input "${testCase.input}"\n` +
+                    `Expected: ${testCase.output}\n` +
+                    `Received: ${result}`
+                );
+            }
         }
 
         return true;
     } catch (error: any) {
         console.error("Error from handlerValidParentheses:", error);
-        throw new Error(error);
+        throw new Error(error.message);
     }
 };
 
-export const validParentheses: problem[] = [
+export const validParentheses = [
 {
     id: 'valid-parentheses',
     title: "20. Valid Parentheses",

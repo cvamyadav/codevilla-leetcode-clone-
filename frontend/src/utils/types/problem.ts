@@ -29,7 +29,10 @@ export type Example = {
 export type problem = [{
     id : string;
     title : string ;
-    problemStatement : string;
+    problemStatement? :{
+        html: string;
+        text: string;
+    } ;
     examples : Example[];
     constraints : string;
     order : number;

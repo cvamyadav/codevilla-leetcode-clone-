@@ -3,42 +3,44 @@ import { problem } from "../types/problem";
 
 
 
-const startercodetwosum =`function twoSum(nums,target){
-//Write your code below
-};`;
+export const startercodetwosum =`function twoSum(nums: number[], target: number): number[] {
+//Write your code here
+} `;
 
-const hanlerTwoSum  = (fn:any) =>{
-    try {  
-        const nums = [
-            [2,7,11,15],
-            [3,2,4],
-            [3,3],
-        ];
-        const target=[9,6,6];
-        const answer = [
-            [0,1],
-            [1,2],
-            [0,1],
-        ];
+export const hanlerTwoSum  = (fn: any) => {
+            try {
+                const nums = [
+                    [2, 7, 11, 15],
+                    [3, 2, 4],
+                    [3, 3],
+                ];
+                const target = [9, 6, 6];
+                const answers = [
+                    [0, 1],
+                    [1, 2],
+                    [0, 1],
+                ];
 
-        for (let index = 0; index < nums.length; index++) {
-            const result = fn(nums[index],target[index]);
-            assert.deepStrictEqual(result,answer[index]);
-            
+                for (let i = 0; i < nums.length; i++) {
+                    const result = fn(nums[i], target[i]);
+                    if (!Array.isArray(result) || 
+                        result.length !== 2 || 
+                        result[0] !== answers[i][0] || 
+                        result[1] !== answers[i][1]) {
+                        throw new Error(`Test case ${i} failed: Expected ${answers[i]}, got ${result}`);
+                    }
+                }
+                return true;
+            } catch (error: any) {
+                throw new Error(error);
+            }
         }
-        return true;
-
-
-    } catch (error : any) {
-        throw new Error(error);
-    }
-}
 
 
 
-export const twoSum : problem[] = [
+export const twoSum  = [
     {
-        id : 'two-sum',
+    id : 'two-sum',
     title : "1. Two Sum",
     problemStatement:`<p className='mt-3'>
 								Given an array of integers <code>nums</code> and an integer <code>target</code>, return
