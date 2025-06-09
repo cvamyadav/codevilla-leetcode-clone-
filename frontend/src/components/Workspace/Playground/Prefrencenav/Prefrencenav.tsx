@@ -6,7 +6,7 @@ export const Prefrencenav = () =>{
 			<div className='flex items-center text-black'>
 				<button className='flex cursor-pointer items-center rounded focus:outline-none bg-zinc-200 text-dark-label-2 hover:bg-dark-fill-2  px-2 py-1.5 font-medium'>
 					<div className='flex items-center px-1'>
-						<div className='text-xs text-bold dark:text-zinc-900 font-extrabold'>JavaScript</div>
+						<div className='text-xs text-bold dark:text-zinc-900 font-extrabold '>JavaScript</div>
 					</div>
 				</button>
 			</div>

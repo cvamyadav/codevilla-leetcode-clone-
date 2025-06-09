@@ -8,7 +8,7 @@ export const Topbar = () => {
 
 
     function logout() {
-  signOut(auth)
+     signOut(auth)
     .then(() => {
       // Sign-out successful.
       console.log("User signed out");
@@ -29,7 +29,7 @@ export const Topbar = () => {
             <div className="px-80 font-medium">
                 <Navbar/>
             </div>
-            {/* <ThemeToggle/> */}<div className="ml-auto flex items-center"><button className='hover:bg-red-600  rounded p-2 text-white' onClick={logout}>Logout</button></div>
+            {/* <ThemeToggle/> */}<div className="ml-auto flex items-center px-4 py-1"><button className='hover:bg-red-600 rounded p-2 text-white px-4 py-2' onClick={logout}>Logout</button></div>
         </div>
     );
 };

@@ -1,5 +1,39 @@
+import { StateEffectType } from "@uiw/react-codemirror";
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { userAtom } from "./store/user";
 
 export const Submissions=()=>{
+    // const auth = getAuth();
+    // console.log( auth);
+
+
+
+    //  const [user,setuser] = useRecoilState(userAtom);
+    //  useEffect(()=>{
+    //          onAuthStateChanged( auth ,function(user) {
+    //                             if (user && user.email) {
+    //               setuser({
+    //                 loading  : false,
+    //                 user : {
+    //                   email : user.email
+    //                 }
+    //                })
+    //             } else {
+    //               setuser({
+    //                 loading : false,
+    //               })
+    //             console.log(user);
+    //          }
+             
+    //         }
+            
+    //          )})
+
+
+     
+
     return(
     <div>
         <h1 className="text-2xl font-bold mb-4">Submissions</h1>

@@ -48,3 +48,64 @@ export default tseslint.config({
   },
 })
 ```
+
+# Using the template
+To use this template, you can run the following command:
+
+```bash
+npx degit https://github.com/vitejs/vite-react-ts-template my-app
+cd my-app
+npm install
+```   
+# Running the app
+To run the app, you can use the following command:
+
+```bash
+npm run dev
+```
+# Building the app
+To build the app for production, you can use the following command:
+
+```bash
+npm run build
+```
+# Previewing the app
+To preview the built app, you can use the following command:
+
+```bash
+npm run preview
+```
+# Testing the app
+To run tests, you can use the following command:
+
+```bash
+npm run test
+```
+# Linting the app
+To lint the app, you can use the following command:
+
+```bash
+npm run lint
+```
+# Formatting the app
+To format the app, you can use the following command:
+
+```bash
+npm run format
+```
+# Cleaning the app
+
+To clean the app, you can use the following command:
+
+```bash
+npm run clean
+```
+# Updating dependencies
+To update dependencies, you can use the following command:
+
+```bash
+npm update
+
+# or
+yarn upgrade
+```

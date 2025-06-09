@@ -10,23 +10,21 @@ import { index } from "../../utils/problems"
 export const ProblemDecscription = () =>{
 	
 	  const { id } = useParams<{ id: string }>();
-		console.log (id);
+	
 	  const problem = index.find((problem) => problem.id === id);
 
 	  if (!problem) {
 		return <div>Problem not found</div>;}
 
 	 	    // Safely handle problemStatement which could be string or { html: string, text: string }
-  const problemStatement = typeof problem.problemStatement === 'string' 
-    ? { html: problem.problemStatement, text: problem.problemStatement }
-    : problem.problemStatement || { html: '', text: '' };
+
 
 
 
 
 
     return(
-        <div className='bg-dark-zinc-100 '>
+        <div className=' bg-gradient-to-br from-blue-50 to-indigo-50'>
 			{/* TAB */}
 			<div className='flex h-11 w-full items-center pt-2 bg-dark-layer-2 text-black overflow-auto'>
 				<div className={"bg-zinc-200 rounded-[5px] px-5 py-[10px] text-xs cursor-pointer font-extrabold text-black"}>

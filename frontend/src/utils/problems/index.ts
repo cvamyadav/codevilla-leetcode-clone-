@@ -1,31 +1,11 @@
 
-
-// import { problem } from "../types/problem";
-// import { jumpGame } from "./jump-game";
-// import { reverseLinkedList } from "./reverse-link-list";
-// import { search2DMatrix } from "./search-a-2d-matrix";
-// import { twoSum } from "./two-sum";
-// import { validParentheses } from "./valid-parentheses";
-
 import { hanlerTwoSum, startercodetwosum } from "./two-sum";
 import { handlerReverseLinkedList, starterCodeReverseLinkedList } from "./reverse-link-list";
 import { handlerJumpGame, starterCodeJumpGame } from "./jump-game";
 import { handlerSearch2DMatrix, starterCodeSearch2DMatrix } from "./search-a-2d-matrix";
 import { handlerValidParentheses, starterCodeValidParentheses } from "./valid-parentheses";
 
-// interface  ProblemMap{
-//     [key :string] :problem
-// }
 
-// const problems: ProblemMap = {
-//     "two-sum": twoSum,
-//     "reverse-linked-list": reverseLinkedList,
-//     "jump-game": jumpGame,
-//     "valid-parentheses": validParentheses,
-//     "search-a-2d-matrix": search2DMatrix,
-// };
-
-// export default problems;
 
 
 export const index =[

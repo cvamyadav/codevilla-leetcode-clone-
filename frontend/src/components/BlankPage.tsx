@@ -8,6 +8,7 @@ export const BlankPage =()=> {
       <div className="">
        
       <Workspace />
+
       </div>
     );
   };

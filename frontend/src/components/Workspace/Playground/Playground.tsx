@@ -7,26 +7,27 @@ import { useParams } from "react-router-dom"
 import { index } from "../../../utils/problems"
 import { useState } from "react"
 import { BsChevronUp } from "react-icons/bs"
-import { Edit } from "lucide-react"
-import { EditorFooter } from "./Prefrencenav/EditorFooter"
+
 
 export const Playground = () =>{
     const [activetastecase, setActiveTestcase] = useState<number>(0);
-
-    const {id} = useParams<{ id: string }>();
-
-    const problem = index.find((problem) => problem.id === id);
     
+    const {id} = useParams<{ id: string }>();
+    const problem = index.find((problem) => problem.id === id);
     const boilerPlate = problem?.starterCode;
 
 
+   
+        
+    
+
     return(
-        <div className="flex flex-col relatve border-2px-solid-black rounded">
+        <div className="flex flex-col relatve border-2px-solid-black rounded ">
             <Prefrencenav/>
         
             <Split className=" h-[calc(100vh-96px)]" direction="vertical" sizes={[60,40]}>
                 <div className="w-full overflow-auto">
-                   <CodeMirror
+                   <CodeMirror 
                    value={boilerPlate}
                    theme={vscodeLight}
                    extensions={[javascript()]}
@@ -34,10 +35,10 @@ export const Playground = () =>{
                    
                    />
                 </div>
-                <div className="w-full px-4 overflow-auto">
+                <div className="w-full px-4 overflow-auto ">
                     <div className="flex h-10 item-center space-x-6">
                         <div className="relative flex h-full flex-col justify-center cursor-pointer  ">
-                            <div className="text-sm font-bold leading-5 text ">Testecase</div>
+                            <div className="text-sm font-bold leading-5 text bg-zinc-200 p-1 px-4 py-1 rounded">Testecase</div>
                             <hr className="absolute bottom-0 h-0.5 w-15 rounded-full border bg-zinc-900"  ></hr>
                         </div>
                     </div>
@@ -48,8 +49,8 @@ export const Playground = () =>{
                    <div className="mr-2 items-start mt-2 "key={example.id}
                       onClick={()=>setActiveTestcase(index)} >
                     <div className="flex flex-wrap items-center gap-y-4">
-                        <div className={`font-medium items-center transition-all foucus:outline-none inline flex bg-dark-fill-3
-                         hover:bg-dark-fill-2 relative rounded-lg px-4 py-1 cursor=pointer whitespace-nowrap ${activetastecase===index?"text-blue-500":""}`}>Case {index+1}</div>
+                        <button className={`font-medium items-center transition-all foucus:outline-none inline flex bg-zinc-200
+                         hover:bg-dark-fill-2 relative rounded-lg px-4 py-1 cursor=pointer whitespace-nowrap ${activetastecase===index?"text-blue-500":""}`}>Case {index+1}</button>
                     </div>
 
                    </div>
@@ -73,7 +74,7 @@ export const Playground = () =>{
                     </div>
                    </div>
                      <div className="flex items-center justify-between mt-4 font-semibold">
-                        <div className="flex items-center space-x-2 bg-gray-200 rounded-lg px-3 py-2">
+                       <div className="flex items-center space-x-2 bg-gray-200 rounded-lg px-3 py-2">
                             Console<BsChevronUp className="fill-gray-6 mx-1 fill-dark-gray-6" />
                         </div><div>
                             <button className="  bg-gray-200 rounded-lg px-3 py-1.5 font-medium items-center transition-all focus:outline-none inline-flex text-sm text-black bg-green-s hover:bg-green-3 rounded-lg">
@@ -92,5 +93,7 @@ export const Playground = () =>{
     </div>                                                                                
         
     )
+
+
 }
 
