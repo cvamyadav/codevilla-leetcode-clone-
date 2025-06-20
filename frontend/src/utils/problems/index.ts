@@ -27,21 +27,21 @@ export const index =[
         examples:[
             {
                 id : 1,
-                inputText : "nums=[2,7,11,15], target=9",
+                inputText :"nums = [2, 7, 11, 15], target = 9",
                 outputText : '[0,1]',
                 explanation : "Because nums[0] + nums[1] == 9, we return [0,1].",
     
             },
             {
                 id : 2,
-                inputText : "nums = [3,2,4] target = 6",
+                inputText : "nums = [3, 2, 4], target = 6",
                 outputText : "[1,2]",
                 explanation : "Because nums[1] + nums[2] == 6 , we return [1,2]",
             },{
                 id : 3,
-                inputText : "nums = [3,3], target = 6",
+                inputText : "nums = [3, 3], target = 6",
                 outputText : "[0,1]",
-                explanation : "Because nums[0] + nums[2] == 6 , we return [0,1]",
+                explanation : "Because nums[0] + nums[1] == 6 , we return [0,1]",
             },
         ],
     
@@ -58,13 +58,16 @@ export const index =[
                                     <li className='mt-2 text-sm'>
                                         <strong>Only one valid answer exists.</strong>
                                     </li>`,
-                starterCode:  startercodetwosum,
+    starterCode:  startercodetwosum,
     order:1,
     handlerFunction :hanlerTwoSum,
     starterFunctionName :"function twosum (",
-    },
-
-
+    Default_Teast_Cases : [
+        { input: [[2, 7, 11, 15], 9], expected: [0, 1] },
+        { input: [[3, 2, 4], 6], expected: [1, 2] }, 
+        { input: [[3, 3], 6], expected: [0, 1] },
+    ],
+},
 
     {
         id: 'reverse-linked-list',
@@ -104,6 +107,11 @@ export const index =[
         order: 2,
         handlerFunction: handlerReverseLinkedList,
         starterFunctionName: "function reverseList(",
+        Default_Teast_Cases : [
+            { input: [[1,2,3,4,5]], expected: [5,4,3,2,1] },
+            { input: [[1,2]], expected: [2,1] },
+            { input: [[]], expected: [] },
+        ],
     },
     
     {
@@ -149,6 +157,11 @@ export const index =[
                 order: 3,
                 handlerFunction: handlerJumpGame,
                 starterFunctionName: "function canJump(",
+                Default_Teast_Cases : [
+                    { input: [[2,3,1,1,4]], expected: true },
+                    { input: [[3,2,1,0,4]], expected: false },
+                    { input: [[0]], expected: true },
+                ],
     },{
         id: 'search-a-2d-matrix',
         title: "5. Search a 2D Matrix",
@@ -200,6 +213,11 @@ export const index =[
         order: 5,
         handlerFunction: handlerSearch2DMatrix,
         starterFunctionName: "function searchMatrix(",
+        Default_Teast_Cases : [
+            { input: [[[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3], expected: true },
+            { input: [[[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13], expected: false },
+            { input: [[[1]], 1], expected: true },
+        ],
     },
     {   
     id: 'valid-parentheses',
@@ -268,6 +286,12 @@ export const index =[
     order: 4,
     handlerFunction: handlerValidParentheses,
     starterFunctionName: "function isValid(",
-
+    Default_Teast_Cases : [
+        { input: ["()"], expected: true },
+        { input: ["()[]{}"], expected: true },
+        { input: ["(]"], expected: false },
+        { input: ["([)]"], expected: false },
+        { input: ["{[]}"], expected: true },
+    ],
     }
     ];

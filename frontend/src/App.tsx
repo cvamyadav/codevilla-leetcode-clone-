@@ -15,6 +15,7 @@ import { About } from './components/About';
 import { ProblemList } from './components/ProblemList';
 import { BlankPage } from './components/BlankPage';
 import { problem } from './utils/types/problem';
+import CoursesPage from './components/CoursesPage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA621pXulqeiLcAf7ZAHEW3yhUw4dxraVs",
@@ -79,7 +80,8 @@ return (
                 <Routes>
                   <Route path="/" element={<Landing />} />
                   <Route path="/about" element={<About/>} />
-                  <Route path="/activity" element={<Submissions/>} />
+                  <Route path="/activity" element={<Submissions />} />
+                  <Route path="/courses" element={<CoursesPage />} />
                   <Route path="/problemlist" element={<ProblemList />} />
                   <Route path="/problems/:id" element={<BlankPage />} />
                 </Routes>

@@ -14,7 +14,7 @@ export const ProblemDecscription = () =>{
 	  const problem = index.find((problem) => problem.id === id);
 
 	  if (!problem) {
-		return <div>Problem not found</div>;}
+		return <div>Problem Upload soon ...</div>;}
 
 	 	    // Safely handle problemStatement which could be string or { html: string, text: string }
 

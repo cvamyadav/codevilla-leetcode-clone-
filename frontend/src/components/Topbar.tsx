@@ -44,8 +44,8 @@ const TopbarItem = [
         route:"/activity"
     },
     {
-        title:"Leaderboad",
-        route:"/leaderboad"
+        title:"Courses",
+        route:"/courses"
     },
     {
         title:"Problems",

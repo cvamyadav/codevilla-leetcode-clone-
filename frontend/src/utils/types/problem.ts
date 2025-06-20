@@ -20,7 +20,7 @@
 
 export type Example = {
     id:number ;
-    inputText : string;
+    inputText : { input: any[]; expected: any[] } | string;
     outputText : string;
     explanation ?: string;
     img ?: string;

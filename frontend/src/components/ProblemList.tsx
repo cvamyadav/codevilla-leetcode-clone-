@@ -10,6 +10,7 @@ export const ProblemList = () => {
           <div className="text-lg font-extrabold mt-5">
               "Quality over Quantity"
           </div>
+        
           <table className="w-3/4 border-separate border-spacing-0 mt-5">
               <thead>
                   <tr className="text-left border-b-2 pb-2 text-zinc-900">
