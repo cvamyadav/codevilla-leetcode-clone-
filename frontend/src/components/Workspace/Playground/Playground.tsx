@@ -79,11 +79,13 @@ export const Playground: React.FC = () => {
       // Run test cases
       for (const testCase of testCases) {
 
-        const functionName:any = id; // Assuming the function is named twoSum
+        
         
         try {
 
-          const actual = (iframeWindow as any).twoSum(...(Array.isArray(testCase.input) ? testCase.input : [testCase.input]));
+          // const SOME = (iframeWindow as any).JSON.stringify(problem?.id);
+          const functionName:any = id;
+          const actual = (iframeWindow as any)[functionName](...(Array.isArray(testCase.input) ? testCase.input : [testCase.input]));
 
           console.log(actual);
           const passed = JSON.stringify(actual) === JSON.stringify(testCase.expected);

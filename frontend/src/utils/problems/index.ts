@@ -10,7 +10,7 @@ import { handlerValidParentheses, starterCodeValidParentheses } from "./valid-pa
 
 export const index =[
     {
-        id : 'two-sum',
+        id : 'twoSum',
         title : "1. Two Sum",
         problemStatement:{html:`<p className='mt-3'>
                                     Given an array of integers <code>nums</code> and an integer <code>target</code>, return
@@ -70,7 +70,7 @@ export const index =[
 },
 
     {
-        id: 'reverse-linked-list',
+        id: 'reverseLinkedList',
         title: "2. Reverse Linked List",
         problemStatement:{html : `<p class='mt-3'>
             Given the <code>head</code> of a singly linked list, reverse the list, and return the reversed list.
@@ -115,17 +115,15 @@ export const index =[
     },
     
     {
-        
-                id: 'jump-game',
-                title: "3. Jump Game",
-                problemStatement:{html: `<p class='mt-3'>
+        id: "canJump",
+        title: "3. Jump Game",
+        problemStatement:{html: `<p class='mt-3'>
                     You are given an integer array <code>nums</code>. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
                 </p>
                 <p class='mt-3'>
                     Return <code>true</code> if you can reach the last index, or <code>false</code> otherwise.
                 </p>`
-            
-                , text :`You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+            , text :`You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
                 Return true if you can reach the last index, or false otherwise.`},
                 examples: [
                     {
@@ -163,7 +161,7 @@ export const index =[
                     { input: [[0]], expected: true },
                 ],
     },{
-        id: 'search-a-2d-matrix',
+        id: 'searchMatrix',
         title: "5. Search a 2D Matrix",
         problemStatement:{html: `<p class='mt-3'>
             Write an efficient algorithm that searches for a value <code>target</code> in an <code>m x n</code> integer matrix <code>matrix</code>. This matrix has the following properties:
@@ -220,7 +218,7 @@ export const index =[
         ],
     },
     {   
-    id: 'valid-parentheses',
+    id: 'isValid',
     title: "4. Valid Parentheses",
     problemStatement:{html:
          `<p class='mt-3'>

@@ -13,7 +13,7 @@ export type Problem = {
 // Problems array
 export const Problems: Problem[] = [
   {
-    id: "two-sum",
+    id: "twoSum",
     title: "Two Sum",
     difficulty: "Easy",
     category: "Array",
@@ -21,7 +21,7 @@ export const Problems: Problem[] = [
     videoId: "8-k1C6ehKuw",
   },
   {
-    id: "reverse-linked-list",
+    id: "reverseLinkedList",
     title: "Reverse Linked List",
     difficulty: "Hard",
     category: "Linked List",
@@ -29,7 +29,7 @@ export const Problems: Problem[] = [
     videoId: "",
   },
   {
-    id: "jump-game",
+    id: "canJump",
     title: "Jump Game",
     difficulty: "Medium",
     category: "Dynamic Programming",
@@ -37,7 +37,7 @@ export const Problems: Problem[] = [
     videoId: "",
   },
   {
-    id: "valid-parentheses",
+    id: "isValid",
     title: "Valid Parentheses",
     difficulty: "Easy",
     category: "Stack",
@@ -45,7 +45,7 @@ export const Problems: Problem[] = [
     videoId: "xty7fr-k0TU",
   },
   {
-    id: "search-a-2d-matrix",
+    id: "searchMatrix",
     title: "Search a 2D Matrix",
     difficulty: "Medium",
     category: "Binary Search",
