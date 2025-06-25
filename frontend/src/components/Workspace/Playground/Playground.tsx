@@ -37,7 +37,7 @@ export const Playground: React.FC = () => {
   const [activeTestCase, setActiveTestCase] = useState(0);
   const [code, setCode] = useState(boilerPlate);
   const [result, setResult] = useState<ExecutionResult>({
-    output: "",
+    output: '',
     error: null,
     executionTime: 0,
   });
@@ -116,6 +116,7 @@ export const Playground: React.FC = () => {
       const executionTime = performance.now() - startTime;
       
       setResult({
+
         output: output || "Execution completed successfully",
         error: null,
         executionTime: parseFloat(executionTime.toFixed(2)),
@@ -243,7 +244,7 @@ export const Playground: React.FC = () => {
               {result.output ? (
                 <pre className="whitespace-pre-wrap break-words">{result.output}</pre>
               ) : (
-                <span className="text-gray-500">{result.output}</span>
+                <span className="text-gray-500">{result.output && result.executionTime}</span>
               )}
               
               {result.error && <p className="text-red-600 mt-2">{result.error}</p>}
