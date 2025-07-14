@@ -71,7 +71,7 @@ function App() {
 return<div className='w-full h-screen no-scrollbar bg-zinc-900 text-white'>
 
            <Router >
-              <Topbar />
+              <Topbar  />
                 <Routes>
                   <Route path="/" element={<Landing />} />
                   <Route path="/about" element={<About/>} />

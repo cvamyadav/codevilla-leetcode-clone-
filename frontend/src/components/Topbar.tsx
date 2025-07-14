@@ -2,6 +2,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Sun, Moon,  } from 'lucide-react'; 
+import FoxLogo from './FoxLogo';
 
 export const Topbar = () => {
     const auth = getAuth();
@@ -21,12 +22,12 @@ export const Topbar = () => {
 
 
     return (
-        <div className="font-bold flex items-center justify-around gap-1 px-12 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 no-scrollbar">
-            <div className="size-12">
-                {/* <img src="fox.png" alt="fox" className="background-opacity-0" /> */}
+        <div className="z-50 font-bold flex items-center justify-around gap-1 p-2   bg-zinc-700 border-b border-gray-200 dark:border-gray-700 rounded no-scrollbar ">
+            <div className="ml-5 text-xl text-blue-600 dark:text-blue-400">
+                Codvilla
             </div>
-            <div className="text-blue-600 dark:text-blue-400">CODVILLA</div>
-            <div className="px-80 font-medium">
+            <div className="text-xl text-blue-600 dark:text-blue-400 "><FoxLogo className="w-10 h-10 text-white" /></div>
+            <div className="px-80 font-medium ml-8 text-xl-0.5">
                 <Navbar/>
             </div>
           

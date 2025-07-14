@@ -8,8 +8,8 @@ export const ProblemList = () => {
   return (
       <div className="flex flex-col items-center h-full  bg-zinc-900 text-white ">
           <div className="text-lg font-extrabold mt-5">
-             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-                 Quality Problems !!
+             <h1 className="text-4xl md:text-5xl font-extrabold text-red-500 mb-4">
+                 Problems !!
           </h1>
           </div>
 

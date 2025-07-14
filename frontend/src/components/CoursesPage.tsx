@@ -101,7 +101,7 @@ const CoursesPage: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Programming Courses
+            Programming <span className="text-blue-500">Courses</span>
           </h1>
           <p className="text-lg md:text-xl text-white max-w-3xl mx-auto">
             Master in-demand programming languages with our comprehensive courses. 

@@ -59,12 +59,12 @@ export const Submissions=()=>{
     <div className="w-full bg-zinc-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center mt-8 ">
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Submissions till now!
+            <span className="text-blue-500">Submissions</span> till now!
           </h1>
           <p className="text-lg md:text-xl text-white max-w-3xl font-bold mx-auto">Here you can see your past submissions.</p>
         </div>
         
-        <div className="bg-zinc-800 shadow-md rounded-lg p-6 mt-8">
+        <div className="bg-zinc-800 shadow-md rounded-lg p-6 mt-10">
             <table className="min-w-full divide-y divide-gray-200 ">
                 <thead>
                     <tr>
