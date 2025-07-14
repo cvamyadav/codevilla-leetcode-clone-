@@ -15,12 +15,12 @@ import { BlankPage } from './components/BlankPage';
 import CoursesPage from './components/CoursesPage';
 
 const firebaseConfig = {
-  apiKey: process.env.VITE_API_KEY,
-  authDomain: process.env.VITE_AUTH_DOMAIN,
-  projectId: process.env.VITE_PROJECT_ID,
-  storageBucket: process.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VITE_MESSAGING_SENDER_ID,
-  appId: process.env.VITE_APP_ID
+  apiKey: process.env.VITE_API_KEY || 'AIzaSyA621pXulqeiLcAf7ZAHEW3yhUw4dxraVs',
+  authDomain: process.env.VITE_AUTH_DOMAIN || 'loogincode.firebaseapp.com',
+  projectId: process.env.VITE_PROJECT_ID || 'loogincode',
+  storageBucket: process.env.VITE_STORAGE_BUCKET || 'loogincode.appspot.com',
+  messagingSenderId: process.env.VITE_MESSAGING_SENDER_ID || '115444860248',
+  appId: process.env.VITE_APP_ID || '1:115444860248:web:69a2826c61c7aae358912d'
 };
 
 // Initialize Firebase
