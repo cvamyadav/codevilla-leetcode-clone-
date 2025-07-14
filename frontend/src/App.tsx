@@ -1,12 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Landing } from './components/landing';
-
 import { initializeApp } from "firebase/app";
 import { Signin } from './components/Singin';
 import { getAuth, onAuthStateChanged} from 'firebase/auth';
 import { useEffect } from 'react';
-
 import { RecoilRoot, useRecoilState } from 'recoil';
 import { userAtom } from './components/store/user';
 import { Topbar } from './components/Topbar';
@@ -14,7 +12,6 @@ import { Submissions } from './components/Submissions';
 import { About } from './components/About';
 import { ProblemList } from './components/ProblemList';
 import { BlankPage } from './components/BlankPage';
-import { problem } from './utils/types/problem';
 import CoursesPage from './components/CoursesPage';
 
 const firebaseConfig = {
@@ -70,12 +67,10 @@ function App() {
   if(!user.user){
     return<div><Signin/></div>
   }
- 
-return (
-  
-    <div className='w-full  h-screen gap-10  text-black'>
-           
-           <Router>
+
+return<div className='w-full h-screen no-scrollbar bg-zinc-900 text-white'>
+
+           <Router >
               <Topbar />
                 <Routes>
                   <Route path="/" element={<Landing />} />
@@ -88,7 +83,7 @@ return (
             </Router>
               
     </div>
-  );
+  
 }
 
 export default App;

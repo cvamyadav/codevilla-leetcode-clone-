@@ -8,5 +8,8 @@ export default {
     extend: {},
   },
   plugins: [],
+  exports : {
+    darkMode: 'class', // Enable dark mode support
+  }
 }
 

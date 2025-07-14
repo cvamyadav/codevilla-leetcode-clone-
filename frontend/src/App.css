@@ -5,9 +5,13 @@
 }
 
 .gutter {
-    background-color: #eee;
+    background-color: #0f0f0f;
     background-repeat: no-repeat;
     background-position: 50%;
+   
+    
+    
+    
 }
 
 .gutter.gutter-horizontal {
@@ -21,12 +25,19 @@
     cursor: row-resize;
 }
 
-.gutter:hover{
-    background: #717271;
-}
+
 .splits {
     display: flex;
-    flex-direction: column; /* Default to vertical split */
+    flex-direction: column; 
     height: 100%;
     width: 100%;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
 }

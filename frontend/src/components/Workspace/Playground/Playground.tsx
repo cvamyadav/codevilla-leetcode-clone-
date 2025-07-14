@@ -1,12 +1,13 @@
 import CodeMirror from "@uiw/react-codemirror";
 import Split from "react-split";
-import { vscodeLight } from "@uiw/codemirror-theme-vscode";
+import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { javascript } from "@codemirror/lang-javascript";
 import { Prefrencenav } from "./Prefrencenav/Prefrencenav";
 import { useParams } from "react-router-dom";
 import { index } from "../../../utils/problems";
-import { useState, useRef, useEffect } from "react";
-import { BsChevronUp } from "react-icons/bs";
+import { useState, useRef, useEffect,  } from "react";
+import { getAuth } from "firebase/auth";
+import supabase from "../../../../../backend/SupabaseClient/supabaseClient";
 
 interface TestCase {
   input: any[] | string;
@@ -21,25 +22,28 @@ interface ExecutionResult {
     passed: boolean;
     input: any[];
     expected: any;
-    actual: any;
+    actual: any[] | string;
   }[];
 }
 
 export const Playground: React.FC = () => {
+     const { currentUser } = getAuth();
+     
+
   const { id } = useParams<{ id: string }>();
  
   const problem = index.find((problem) => problem.id === id);
   const boilerPlate = problem?.starterCode || "";
-  const default_testcases = problem?.Default_Teast_Cases as TestCase[] || [];
+  const default_testcases = problem?.Default_Teast_Cases as TestCase[] ;
   const [testCases, setTestCases] = useState<TestCase[]>(default_testcases);
-  const [customInput, setCustomInput] = useState<string>('[[2,7,11,15], 9]');
-
+  const [done,setdone] = useState<boolean>(false);
   const [activeTestCase, setActiveTestCase] = useState(0);
   const [code, setCode] = useState(boilerPlate);
   const [result, setResult] = useState<ExecutionResult>({
     output: '',
     error: null,
     executionTime: 0,
+    
   });
   const [isExecuting, setIsExecuting] = useState<boolean>(false);
   const editorRef = useRef<HTMLDivElement>(null);
@@ -53,10 +57,11 @@ export const Playground: React.FC = () => {
   };
 
 
-
-  const executeCode = async () => {
+    const executeCode = async () => {
     setIsExecuting(true);
     setResult(prev => ({ ...prev, error: null, output: '' }));
+
+
     
     try {
       const startTime = performance.now();
@@ -85,44 +90,46 @@ export const Playground: React.FC = () => {
 
           // const SOME = (iframeWindow as any).JSON.stringify(problem?.id);
           const functionName:any = id;
-          const actual = (iframeWindow as any)[functionName](...(Array.isArray(testCase.input) ? testCase.input : [testCase.input]));
+           const actual = (iframeWindow as any)[functionName](...(Array.isArray(testCase.input) ? testCase.input : [testCase.input]));
 
-          console.log(actual);
+        
           const passed = JSON.stringify(actual) === JSON.stringify(testCase.expected);
           
-          if(!passed){
-            alert(`Test case failed for input: ${JSON.stringify(testCase.input)}\nExpected: ${JSON.stringify(testCase.expected)}\nActual: ${JSON.stringify(actual)}`);
-
-          }else{
-            alert(`Test case passed for input: ${JSON.stringify(testCase.input)}\nExpected: ${JSON.stringify(testCase.expected)}\nActual: ${JSON.stringify(actual)}`);
-          }
+       
           
           testResults.push({
             passed,
             input: Array.isArray(testCase.input) ? testCase.input : [testCase.input],
             expected: testCase.expected,
-            actual,
-            
+            actual: Array.isArray(actual) ? actual : [actual],
+
           });
+
+          
           
         } catch (error) {
           testResults.push({
             passed: false,
             input: Array.isArray(testCase.input) ? testCase.input : [testCase.input],
             expected: testCase.expected,
-            actual: error instanceof Error ? error.message : 'Runtime error'
+            actual: error instanceof Error ? error.message : 'Unknown error',
           });
+
+          
+
         }
+
+        
       }
 
       const executionTime = performance.now() - startTime;
       
       setResult({
-
+      
         output: output || "Execution completed successfully",
         error: null,
         executionTime: parseFloat(executionTime.toFixed(2)),
-        testResults
+        testResults,
       });
       
       document.body.removeChild(iframe);
@@ -140,42 +147,62 @@ export const Playground: React.FC = () => {
   };
   
 
-  const runWithCustomInput = () => {
-    try {
-      const input = JSON.parse(customInput);
-      if (!Array.isArray(input)) throw new Error('Input must be an array');
-      
-      // Add temporary test case
-      setTestCases([...testCases, { input, expected: null }]);
-      console.log('Running with custom input:', input);
-      executeCode();
-    } catch (error) {
-      setResult({
-        output: '',
-        error: error instanceof Error ? error.message : 'Invalid input format',
-        executionTime: 0
-      });
-    }
-  };
-  const clearEditor = () => {
-    setCode(problem?.starterCode || '');
-    setTestCases(default_testcases);
-    setResult({
-      output: '',
-      error: null,
-      executionTime: 0
-    });
-  };
+const submit =  async() => {
+ 
+  try {
+    await executeCode();
+   setIsExecuting(true);
+  
+
+    if (!currentUser?.email) throw new Error('Not authenticated');
+    if (!problem) throw new Error('Problem not found');
+
+    const allPassed = result.testResults?.every(test => test.passed) ? true : false;
+    setdone(allPassed);
+    const { error } = await supabase
+      .from('Submissions')
+      .insert([{
+        user: currentUser.email,
+        problem: problem?.title,
+        status: allPassed ? 'Passed' : 'Failed',
+        date: new Date().toISOString(),
+        // code: allPassed ? code : null
+      }]);
+      alert("Submission Successful");
+
+    if (error) throw error;
+    
+  } catch (error) {
+    console.error('Submission failed:', error);
+    // Consider showing error to user
+  }
+
+setIsExecuting(false);
+};
+
+const clear= () =>{
+  setResult({
+    output: '',
+    error: null,
+    executionTime: 0,
+    testResults: []
+  })
+};
+  
+
+
+
 
   return (
-    <div className="flex flex-col relative border-2 border-solid border-black rounded" ref={editorRef}>
+    <div className="flex flex-col relative h-full text-white rounded  border-2 border-zinc-700 bg-zinc-900 m-0.5" ref={editorRef}>
       <Prefrencenav  />
-      
-      <Split className="h-[calc(100vh-96px)]" direction="vertical" sizes={[60, 40]}>
-        <div className="w-full overflow-auto">
+
+      <Split className="h-[calc(100vh-96px)] " direction="vertical" sizes={[60, 40]}>
+        <div className="  overflow-hidden h-full">
+          
           <CodeMirror
             value={code}
-            theme={vscodeLight}
+            theme={ vscodeDark}
             extensions={[javascript()]}
             style={{ fontSize: 16 }}
             onChange={handleCodeChange}
@@ -206,21 +233,21 @@ export const Playground: React.FC = () => {
           />
         </div>
         
-        <div className="w-full px-4 overflow-auto">
+        <div className="w-full px-4 overflow-auto bg-zinc-900 no-scrollbar">
           <div className="flex h-10 items-center space-x-6">
-            <div className="relative flex h-full flex-col justify-center cursor-pointer">
-              <div className="text-sm font-bold leading-5 bg-zinc-200 px-4 py-2 rounded">
+            <div className="relative flex h-full flex-col justify-center cursor-pointer mt-4">
+              <div className="text-sm font-bold leading-5 bg-zinc-700 px-4 py-2 rounded">
                 Test Cases
               </div>
               <hr className="absolute bottom-0 h-0.5 w-full rounded-full border-b-2 border-zinc-900" />
             </div>
           </div>
           
-          <div className="flex">
+          <div className="flex mt-4">
             {problem?.examples.map((_, index) => (
               <div className="mr-2 items-start mt-2" key={index} onClick={() => setActiveTestCase(index)}>
                 <button
-                  className={`font-medium transition-all focus:outline-none inline-flex bg-zinc-200 hover:bg-zinc-300 rounded-lg px-4 py-1 whitespace-nowrap ${
+                  className={`font-medium transition-all focus:outline-none inline-flex bg-zinc-700 hover:bg-zinc-300 rounded-lg px-4 py-1 whitespace-nowrap ${
                     activeTestCase === index ? "text-blue-500 border-b-2 border-blue-500" : ""
                   }`}
                 >
@@ -232,25 +259,28 @@ export const Playground: React.FC = () => {
 
           <div className="font-semibold my-4">
             <p className="text-sm font-medium mt-4">Input:</p>
-            <div className="w-full text-sm rounded-lg border px-3 py-2 bg-zinc-100 border-gray-300 text-black mt-2">
+            <div className="w-full text-sm rounded-lg border px-3 py-2 bg-zinc-700 border-gray-300 text-white mt-2">
               {problem?.examples[activeTestCase]?.inputText}
             </div>
             
-            <p className="text-sm font-medium mt-4">Expected Output:</p>
-            <div className="w-full rounded-lg border px-3 py-2 bg-zinc-100 border-gray-300 text-black mt-2">
+            <p className="text-sm font-medium mt-4">Output:</p>
+            <div className="w-full rounded-lg border px-3 py-2 bg-zinc-700 border-gray-300 text-white mt-2">
               {problem?.examples[activeTestCase]?.outputText}
             </div>
 
-            <p className="text-sm font-medium mt-4">Execution Result !!</p>
-            <div className="w-full rounded-lg border px-3 py-2 bg-zinc-100 border-gray-300 text-black ">
-              {result.output ? (
-                <pre className="whitespace-pre-wrap break-words">{result.output}</pre>
+            <p className="text-sm font-medium mt-4">Your Output:</p>
+            <div className="w-full rounded-lg border px-3 py-2 bg-zinc-700 border-gray-300 text-white ">
+              {result.testResults && result.testResults[activeTestCase] ? (
+                <pre className="whitespace-pre-wrap break-words">
+                  {JSON.stringify(result.testResults[activeTestCase].actual, null, 2)}
+                </pre>
               ) : (
-                <span className="text-gray-500">{result.output && result.executionTime}</span>
+                <span className="text-gray-500">No result yet.</span>
               )}
-              
-              {result.error && <p className="text-red-600 mt-2">{result.error}</p>}
-              {result.executionTime > 0 && (
+            
+
+            {result.error && <p className="text-red-600 mt-2">{result.error}</p>}
+            {result.executionTime > 0 && (
                 <p className="text-xs text-zinc-500 mt-2">
                   Execution time: {result.executionTime}ms
                 </p>
@@ -259,21 +289,23 @@ export const Playground: React.FC = () => {
           </div>
           
           <div className="flex items-center justify-between mt-2 font-semibold">
-            <div className="flex items-center space-x-2 bg-gray-200 rounded-lg px-3 py-2">
-              Console
-              <BsChevronUp className="fill-gray-600 mx-1" />
+            <div className="flex items-center bg-gray-200 rounded-lg  py-1.5 px-3">
+              <button className="flex items-center text-gray-600 hover:text-gray-800 transition-colors duration-200"onClick={clear}>
+                     Clear
+              </button>
+         
             </div>
             
             <div>
               <button
-                onClick={runWithCustomInput}
+                onClick={executeCode}
                 disabled={isExecuting}
                 className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-3 py-1.5 font-medium transition-all focus:outline-none inline-flex text-sm disabled:opacity-50"
               >
                 {isExecuting ? 'Running...' : 'Run'}
               </button>
               <button
-                onClick={executeCode}
+                onClick={submit}
                 disabled={isExecuting}
                 className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-3 py-1.5 font-medium transition-all focus:outline-none inline-flex text-sm ml-2 disabled:opacity-50"
               >
@@ -290,7 +322,7 @@ export const Playground: React.FC = () => {
                   <div
                     key={index}
                     className={`p-2 rounded ${
-                      test.passed ? 'bg-green-100' : 'bg-red-100'
+                      test.passed ? 'bg-green-700' : 'bg-red-700'
                     }`}
                   >
                     <p className="font-medium">

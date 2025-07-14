@@ -11,7 +11,7 @@ import { handlerValidParentheses, starterCodeValidParentheses } from "./valid-pa
 export const index =[
     {
         id : 'twoSum',
-        title : "1. Two Sum",
+        title : "Two Sum",
         problemStatement:{html:`<p className='mt-3'>
                                     Given an array of integers <code>nums</code> and an integer <code>target</code>, return
                                     <em>indices of the two numbers such that they add up to</em> <code>target</code>.
@@ -45,7 +45,7 @@ export const index =[
             },
         ],
     
-    constraints :`<li className='mt-2'>
+    constraints :{html:`<li className='mt-2'>
                                         <code>2 ≤ nums.length ≤ 10</code>
                                     </li>
     
@@ -58,6 +58,7 @@ export const index =[
                                     <li className='mt-2 text-sm'>
                                         <strong>Only one valid answer exists.</strong>
                                     </li>`,
+                                    text:`2 ≤ nums.length ≤ 10, -10 ≤ nums[i] ≤ 10, -10 ≤ target ≤ 10, Only one valid answer exists.`},
     starterCode:  startercodetwosum,
     order:1,
     handlerFunction :hanlerTwoSum,
@@ -70,12 +71,12 @@ export const index =[
 },
 
     {
-        id: 'reverseLinkedList',
-        title: "2. Reverse Linked List",
+        id: "reverseLinkedList",
+        title: "Reverse Linked List",
         problemStatement:{html : `<p class='mt-3'>
             Given the <code>head</code> of a singly linked list, reverse the list, and return the reversed list.
         </p>`,
-        text :`Given the head of a singly linked list, reverse the list, and return the reversed list.`},
+        text : `Given the head of a singly linked list, reverse the list, and return the reversed list.`},
         examples: [
             {
                 id: 1,
@@ -97,16 +98,19 @@ export const index =[
                 explanation: "An empty linked list remains empty after reversal."
             }
         ],
-        constraints: `<li class='mt-2'>
+        constraints:{html: `<li class='mt-2'>
             The number of nodes in the list is the range <code>[0, 5000]</code>.
         </li>
         <li class='mt-2'>
             <code>-5000 <= Node.val <= 5000</code>
         </li>`,
+        text: `The number of nodes in the list is the range [0, 5000].
+        -5000 <= Node.val <= 5000
+            `},
         starterCode: starterCodeReverseLinkedList,
         order: 2,
         handlerFunction: handlerReverseLinkedList,
-        starterFunctionName: "function reverseList(",
+        starterFunctionName: "function reverseLinkedList(",
         Default_Teast_Cases : [
             { input: [[1,2,3,4,5]], expected: [5,4,3,2,1] },
             { input: [[1,2]], expected: [2,1] },
@@ -116,14 +120,14 @@ export const index =[
     
     {
         id: "canJump",
-        title: "3. Jump Game",
+        title: "Jump Game",
         problemStatement:{html: `<p class='mt-3'>
                     You are given an integer array <code>nums</code>. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
                 </p>
                 <p class='mt-3'>
                     Return <code>true</code> if you can reach the last index, or <code>false</code> otherwise.
                 </p>`
-            , text :`You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+            , text : `You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
                 Return true if you can reach the last index, or false otherwise.`},
                 examples: [
                     {
@@ -145,12 +149,12 @@ export const index =[
                         explanation: "You're already at the last index."
                     }
                 ],
-                constraints: `<li class='mt-2'>
+                constraints:{ html:`<li class='mt-2'>
                     <code>1 <= nums.length <= 10<sup>4</sup></code>
                 </li>
                 <li class='mt-2'>
                     <code>0 <= nums[i] <= 10<sup>5</sup></code>
-                </li>`,
+                </li>`,text:`1 <= nums.length <= 10^4, 0 <= nums[i] <= 10^5`},
                 starterCode: starterCodeJumpGame,
                 order: 3,
                 handlerFunction: handlerJumpGame,
@@ -162,7 +166,7 @@ export const index =[
                 ],
     },{
         id: 'searchMatrix',
-        title: "5. Search a 2D Matrix",
+        title: "Search a 2D Matrix",
         problemStatement:{html: `<p class='mt-3'>
             Write an efficient algorithm that searches for a value <code>target</code> in an <code>m x n</code> integer matrix <code>matrix</code>. This matrix has the following properties:
         </p>
@@ -195,7 +199,7 @@ export const index =[
                 explanation: "The matrix contains the single element which is the target."
             },
         ],
-        constraints: `<li class='mt-2'>
+        constraints: {html: `<li class='mt-2'>
             <code>m == matrix.length</code>
         </li>
         <li class='mt-2'>
@@ -207,6 +211,8 @@ export const index =[
         <li class='mt-2'>
             <code>-10<sup>4</sup> <= matrix[i][j], target <= 10<sup>4</sup></code>
         </li>`,
+        text: `m == matrix.length, n == matrix[i].length, 1 <= m, n <= 100, -10^4 <= matrix[i][j], target <= 10^4`
+      },
         starterCode: starterCodeSearch2DMatrix,
         order: 5,
         handlerFunction: handlerSearch2DMatrix,
@@ -217,9 +223,9 @@ export const index =[
             { input: [[[1]], 1], expected: true },
         ],
     },
-    {   
+    {
     id: 'isValid',
-    title: "4. Valid Parentheses",
+    title: "Valid Parentheses",
     problemStatement:{html:
          `<p class='mt-3'>
         Given a string <code>s</code> containing just the characters <code>'('</code>, <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and <code>']'</code>, determine if the input string is valid.
@@ -274,12 +280,14 @@ export const index =[
             explanation: "The input string is valid because all brackets are closed in the correct order."
         },
     ],
-    constraints: `<li class='mt-2'>
+    constraints: {html: `<li class='mt-2'>
         <code>1 <= s.length <= 10<sup>4</sup></code>
     </li>
     <li class='mt-2'>
         <code>s</code> consists of parentheses only <code>'()[]{}'</code>.
     </li>`,
+    text: `1 <= s.length <= 10^4, s consists of parentheses only '()[]{}'`
+    } ,
     starterCode: starterCodeValidParentheses,
     order: 4,
     handlerFunction: handlerValidParentheses,

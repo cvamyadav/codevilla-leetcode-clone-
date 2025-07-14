@@ -97,13 +97,13 @@ const CoursesPage: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-zinc-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             Programming Courses
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto">
             Master in-demand programming languages with our comprehensive courses. 
             New courses are in development - sign up to get notified when they launch!
           </p>
@@ -117,7 +117,7 @@ const CoursesPage: React.FC = () => {
               </div>
               <input
                 type="text"
-                className="py-3 block w-full pl-10 pr-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="py-3 block w-full pl-10 pr-3 bg-zinc-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search courses by language, topic, or tag..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -126,26 +126,26 @@ const CoursesPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {filteredCourses.map((course) => (
             <div 
               key={course.id} 
-              className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+              className="bg-zinc-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
             >
               <div className={`${course.color} h-2`}></div>
               <div className="p-6">
                 <div className="flex items-start">
                   <span className="text-4xl mr-4">{course.icon}</span>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">{course.title}</h3>
-                    <p className="text-gray-600 mt-2">{course.description}</p>
+                    <h3 className="text-xl font-bold text-white">{course.title}</h3>
+                    <p className="text-white mt-2">{course.description}</p>
                   </div>
                 </div>
                 
                 <div className="mt-6">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm font-medium text-gray-700">Development Progress</span>
-                    <span className="text-sm font-medium text-gray-700">{course.progress}%</span>
+                    <span className="text-sm font-medium text-white">Development Progress</span>
+                    <span className="text-sm font-medium text-white">{course.progress}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
                     <div 
@@ -217,12 +217,12 @@ const CoursesPage: React.FC = () => {
         )}
         
         <div className="mt-16 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Want to suggest a course?</h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-4">Want to suggest a course?</h2>
+          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
             We're always looking to expand our course offerings. Let us know what programming language
             or technology you'd like us to cover next!
           </p>
-          <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
             </svg>

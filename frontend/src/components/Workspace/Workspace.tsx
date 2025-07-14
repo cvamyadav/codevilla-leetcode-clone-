@@ -1,19 +1,17 @@
 import Split from "react-split"
 import { Playground } from "./Playground/Playground"
-import { problem } from "../../utils/types/problem"
 import ProblemDecscription from "./ProblemDescripion"
 
 
 
 export const Workspace  = () =>{
-    return(
-       <Split className="split">
+    return<div className="flex flex-col h-screen w-full bg-zinc-900 ml-0">
+           <Split className="split  "  >
         < ProblemDecscription/>
-        
-        <div className="h-screen"> <Playground/></div>
+
+        <div className=""> <Playground/></div>
 
        </Split>
-
-    )
+    </div>
 }
 

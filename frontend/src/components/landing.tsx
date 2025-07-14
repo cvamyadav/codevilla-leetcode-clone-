@@ -2,12 +2,12 @@
 export const Landing =()=>{
 
     return(
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+        <div className="min-h-screen bg-zinc-900 flex flex-col items-center text-white no-scrollbar">
           
     
           <main className="container mx-auto px-4 py-16 text-center">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Welcome to Codvilla</h2>
-            <p className="text-gray-600 mb-8">
+            <h2 className="text-4xl font-bold text-white text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Welcome to <span className="text-blue-500">Codvilla</span></h2>
+            <p className="text-white font-bold mb-8">
               Your ultimate destination to solve programming challenges and enhance your coding skills.
             </p>
             <a
@@ -18,8 +18,8 @@ export const Landing =()=>{
             </a>
     
             <section id="features" className="mt-16">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Features</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="text-2xl font-bold text-white mb-4">Features</h3>
+              <ul className="space-y-2 text-white">
                 <li>- Hundreds of coding challenges</li>
                 <li>- Real-time coding editor</li>
                 <li>- Compete with other coders</li>
@@ -28,15 +28,15 @@ export const Landing =()=>{
             </section>
     
             <section id="how-it-works" className="mt-16">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">How It Works</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-bold text-white mb-4">How It Works</h3>
+              <p className="text-white">
                 Sign up, choose a challenge, and start coding! Get immediate feedback and improve with each attempt.
               </p>
             </section>
     
             <section id="about" className="mt-16">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">About Us</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-bold text-white mb-4">About Us</h3>
+              <p className="text-white">
                 Codvilla is built by coders, for coders. Our mission is to provide an engaging platform for programmers to
                 learn, practice, and grow.
               </p>

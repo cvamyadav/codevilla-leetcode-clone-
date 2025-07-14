@@ -1,7 +1,7 @@
 import { getAuth, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Sun, Moon, LogOut } from 'lucide-react'; // You can use any icons you prefer
+import { Sun, Moon,  } from 'lucide-react'; 
 
 export const Topbar = () => {
     const auth = getAuth();
@@ -21,7 +21,7 @@ export const Topbar = () => {
 
 
     return (
-        <div className="font-bold flex items-center gap-1 px-12 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div className="font-bold flex items-center justify-around gap-1 px-12 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 no-scrollbar">
             <div className="size-12">
                 {/* <img src="fox.png" alt="fox" className="background-opacity-0" /> */}
             </div>
@@ -29,7 +29,8 @@ export const Topbar = () => {
             <div className="px-80 font-medium">
                 <Navbar/>
             </div>
-            {/* <ThemeToggle/> */}<div className="ml-auto flex items-center px-4 py-1"><button className='hover:bg-red-600 rounded p-2 text-white px-4 py-2' onClick={logout}>Logout</button></div>
+          
+            <div className="ml-auto flex items-center px-4 py-1">  <button className='hover:bg-red-600 rounded p-2 text-white px-4 py-2' onClick={logout}>Logout</button></div>
         </div>
     );
 };
@@ -54,7 +55,7 @@ const TopbarItem = [
 ]
 
 function Navbar(){
-    return <div className="flex gap-10">
+    return <div className="flex gap-10 no-scrollbar">
         {TopbarItem.map((item, index) => 
             <Navbaritem key={index} route={item.route} title={item.title}/>
         )}
@@ -63,7 +64,7 @@ function Navbar(){
 
 function Navbaritem({title, route}: {title: string, route: string}) {
     return <Link to={route}>
-        <div className="hover:text-blue-600 dark:hover:text-blue-400 text-gray-800 dark:text-gray-200 transition-colors">
+        <div className="hover:text-blue-600 dark:hover:text-blue-400 font-bold text-gray-800 dark:text-gray-200 transition-colors no-scrollbar">
             {title}
         </div>
     </Link>

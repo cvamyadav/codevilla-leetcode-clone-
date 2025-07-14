@@ -6,14 +6,16 @@ import { AiFillYoutube } from "react-icons/ai";
 
 export const ProblemList = () => {
   return (
-      <div className="flex flex-col items-center   h-full  bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="flex flex-col items-center h-full  bg-zinc-900 text-white ">
           <div className="text-lg font-extrabold mt-5">
-              "Quality over Quantity"
+             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                 Quality Problems !!
+          </h1>
           </div>
-        
-          <table className="w-3/4 border-separate border-spacing-0 mt-5">
+
+          <table className="w-3/4 border-separate border-spacing-0 mt-8 bg-zinc-800 shadow-md rounded-lg">
               <thead>
-                  <tr className="text-left border-b-2 pb-2 text-zinc-900">
+                  <tr className="text-left border-b-2 pb-2 text-zinc-100">
                       <th className="px-4 py-2">Title</th>
                       <th className="px-4 py-2 text-center">Difficulty</th>
                       <th className="px-4 py-2 text-center">Category</th>
@@ -31,7 +33,7 @@ export const ProblemList = () => {
                               : "text-yellow-500";
  
                       return (
-                          <tr   key={doc.id} className={`border ${idx % 2 === 1 ? "bg-zinc-200 rounded border" : "" } rounded-lg`}>
+                          <tr   key={doc.id} className={`border ${idx % 2 === 1 ? "bg-zinc-700 rounded border" : "" } rounded-lg`}>
 
 
                               <td className="px-4 py-2">

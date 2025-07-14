@@ -32,9 +32,9 @@ export const Signin = () => {
   return (
     <>
         <div>
-          <div className="w-full flex justify-center items-center h-screen gap-10">
+          <div className="w-full flex justify-center items-center h-screen gap-10 bg-gray-100">
                 <div className="gap-4 ">
-                <h1 className="text-4xl font-bold">CODVILLA</h1> 
+                <h1 className="text-4xl font-bold">CODVILLA</h1>
                 </div>
 
 

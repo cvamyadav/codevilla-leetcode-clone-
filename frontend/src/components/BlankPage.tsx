@@ -5,10 +5,10 @@ import { Workspace } from "./Workspace/Workspace";
 
 export const BlankPage =()=> {
     return (
-      <div className="">
+      <div className=" overflow-hidden bg-zinc-900 ">
        
       <Workspace />
-
+       
       </div>
     );
   };

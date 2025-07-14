@@ -13,7 +13,7 @@ export const starterCodeReverseLinkedList = `/**
 *     this.next = (next===undefined ? null : next)
 * }
 */
-function reverseList(head) {
+function reverseLinkedList(head) {
   // Write your code here
 };`;
 
@@ -107,5 +107,5 @@ export const reverseLinkedList = [{
     starterCode: starterCodeReverseLinkedList,
     order: 2,
     handlerFunction: handlerReverseLinkedList,
-    starterFunctionName: "function reverseList(",
+    starterFunctionName: "function reverseLinkedList(",
 }];
