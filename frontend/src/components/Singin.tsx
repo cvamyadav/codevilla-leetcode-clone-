@@ -14,8 +14,7 @@ export const Signin = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         if (!credential) return;
 
-        const token = credential.accessToken;
-        const user = result.user;
+       
 
       // console.log("User signed in:", user, "Token:", token);
       })

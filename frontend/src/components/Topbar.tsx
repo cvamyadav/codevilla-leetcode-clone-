@@ -1,6 +1,6 @@
 import { getAuth, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { Sun, Moon,  } from 'lucide-react'; 
 import FoxLogo from './FoxLogo';
 
@@ -71,21 +71,8 @@ function Navbaritem({title, route}: {title: string, route: string}) {
     </Link>
 }
 
-function ThemeToggle() {
+export const ThemeToggle = () => {
     const [darkMode, setDarkMode] = useState(false);
-
-    useEffect(() => {
-     const savedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        const initialMode = savedTheme 
-            ? savedTheme === 'dark' 
-            : systemDark;
-            
-        setDarkMode(initialMode);
-        document.documentElement.classList.toggle('dark', initialMode);
-    }, []);
-
 
     const toggleTheme = () => {
         const newMode = !darkMode;
