@@ -1,6 +1,3 @@
-import assert from "assert";
-import { problem } from "../types/problem";
-
 
 export const starterCodeSearch2DMatrix = `function searchMatrix(matrix, target) {
   // Write your code here

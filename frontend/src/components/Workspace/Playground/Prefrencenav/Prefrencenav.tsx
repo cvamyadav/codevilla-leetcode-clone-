@@ -1,4 +1,3 @@
-import { AiOutlineFullscreen, AiOutlineSetting } from "react-icons/ai"
 
 export const Prefrencenav = () =>{
     return(
