@@ -36,7 +36,7 @@ export const Playground: React.FC = () => {
   const boilerPlate = problem?.starterCode || "";
   const default_testcases = problem?.Default_Teast_Cases as TestCase[] ;
   const [testCases, setTestCases] = useState<TestCase[]>(default_testcases);
-  const [done,setdone] = useState<boolean>(false);
+  
   const [activeTestCase, setActiveTestCase] = useState(0);
   const [code, setCode] = useState(boilerPlate);
   const [result, setResult] = useState<ExecutionResult>({
@@ -158,7 +158,7 @@ const submit =  async() => {
     if (!problem) throw new Error('Problem not found');
 
     const allPassed = result.testResults?.every(test => test.passed) ? true : false;
-    setdone(allPassed);
+   
     const { error } = await supabase
       .from('Submissions')
       .insert([{
@@ -181,6 +181,7 @@ setIsExecuting(false);
 };
 
 const clear= () =>{
+  setTestCases([]);
   setResult({
     output: '',
     error: null,
