@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 export const About = () => {
     return (
         <div className="w-full bg-zinc-900 py-12 px-4 sm:px-6 lg:px-8">
@@ -73,9 +73,9 @@ export const About = () => {
 
                 {/* CTA Button */}
                 <div className="text-center mt-16">
-                    <a href = "/problemlist "className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <Link to="/problemlist" className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                         Start Your Coding Journey
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
