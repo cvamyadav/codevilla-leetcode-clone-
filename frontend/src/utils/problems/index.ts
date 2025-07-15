@@ -68,6 +68,8 @@ export const index =[
         { input: [[3, 2, 4], 6], expected: [1, 2] }, 
         { input: [[3, 3], 6], expected: [0, 1] },
     ],
+    difficulty: "Easy",
+    category: "Array",
 },
 
     {
@@ -116,6 +118,8 @@ export const index =[
             { input: [[1,2]], expected: [2,1] },
             { input: [[]], expected: [] },
         ],
+        difficulty: "Hard",
+        category: "Linked List",
     },
     
     {
@@ -164,6 +168,8 @@ export const index =[
                     { input: [[3,2,1,0,4]], expected: false },
                     { input: [[0]], expected: true },
                 ],
+                difficulty: "Medium",
+                category: "Array",
     },{
         id: 'searchMatrix',
         title: "Search a 2D Matrix",
@@ -222,6 +228,8 @@ export const index =[
             { input: [[[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13], expected: false },
             { input: [[[1]], 1], expected: true },
         ],
+        difficulty: "Medium",
+        category: "Matrix",
     },
     {
     id: 'isValid',
@@ -299,5 +307,7 @@ export const index =[
         { input: ["([)]"], expected: false },
         { input: ["{[]}"], expected: true },
     ],
+    difficulty: "Easy",
+    category: "String",
     }
     ];

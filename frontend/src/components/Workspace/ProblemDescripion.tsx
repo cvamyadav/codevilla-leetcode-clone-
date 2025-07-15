@@ -1,6 +1,4 @@
-import { AiFillDislike, AiFillLike } from "react-icons/ai"
-import { BsCheck2Circle } from "react-icons/bs"
-import { TiStarOutline } from "react-icons/ti"
+
 import { useParams } from "react-router-dom"
 import { index } from "../../utils/problems"
 
@@ -17,7 +15,6 @@ export const ProblemDecscription = () =>{
 	  if (!problem) {
 		return <div>Problem Upload soon ...</div>;}
 
-	 	    // Safely handle problemStatement which could be string or { html: string, text: string }
 
 
 
@@ -44,53 +41,17 @@ export const ProblemDecscription = () =>{
 							<div
 								className={`text-white bg-green-500 inline-block rounded-[21px] bg-opacity-[.15] px-2.5 py-1 text-xs font-medium capitalize `}
 							>
-								medium
-							</div>
-							<div className='rounded p-[3px] ml-4 text-lg transition-colors duration-200 text-green-500 text-dark-green-500'>
-								<BsCheck2Circle />
-							</div>
-							<div className='flex items-center cursor-pointer hover:bg-dark-fill-3 space-x-1 rounded p-[3px]  ml-4 text-lg transition-colors duration-200 text-gray-600'>
-								<AiFillLike />
-								<span className='text-xs'></span>
-							</div>
-							<div className='flex items-center cursor-pointer hover:bg-dark-fill-3 space-x-1 rounded p-[3px]  ml-4 text-lg transition-colors duration-200 text-zinc-500 text-gray-600'>
-								<AiFillDislike />
-								<span className='text-xs'></span>
-							</div>
-							<div className='cursor-pointer hover:bg-dark-fill-3  rounded p-[3px]  ml-4 text-xl transition-colors duration-200 text-zinc-500 text-gray-600'>
-								<TiStarOutline />
-							</div>
+								{problem?.difficulty}
+							</div><div className='text-xs font-bold text-zinc-200 ml-4 '>{problem?.category}</div>
+							
 						</div>
 
-						{/* Problem Statement(paragraphs) */}
-						<div className='text-white text-sm mt-3'>
-							{/* <p className='mt-3'>
-								Given an array of integers <code>nums</code> and an integer <code>target</code>, return
-								<em>indices of the two numbers such that they add up to</em> <code>target</code>.
-							</p>
-							<p className='mt-3'>
-								You may assume that each input would have <strong>exactly one solution</strong>, and you
-								may not use thesame element twice.
-							</p>
-							<p className='mt-3'>You can return the answer in any order.</p> */}
-							 <div dangerouslySetInnerHTML={{__html:problem?.problemStatement.html}}/>			
-									</div>
-						{/* Examples */}
-						<div className='mt-4'>
-							{/* Example 1 */}
-							 {/* <div>
-								<p className='font-medium text-black '>Example 1: </p>
-								<div className='example-card'>
-									<pre>
-										<strong className='text-black'>Input: </strong> nums = [2,7,11,15], target = 9{" "}
-										<br />
-										<strong>Output:</strong> [0,1] <br />
-										<strong>Explanation:</strong>Because nums[0] + nums[1] == 9, we return [0, 1].
-									</pre>
-								</div>
-							</div> */}
-
 						
+						<div className='text-white text-sm mt-3'>
+							<div dangerouslySetInnerHTML={{__html:problem?.problemStatement.html}}/>
+						</div>
+						
+						<div className='mt-4'>
 						<div>
 								
 							{problem?.examples.map((example,index) => (
