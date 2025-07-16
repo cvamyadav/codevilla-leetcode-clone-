@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export const Landing =()=>{
 
     return(
-        <div className="min-h-screen bg-zinc-900 flex flex-col items-center text-white no-scrollbar">
+        <div className="min-h-screen bg-zinc-900 flex flex-col items-center text-white overflow-hidden">
           
     
           <main className="container mx-auto px-4 py-16 text-center">

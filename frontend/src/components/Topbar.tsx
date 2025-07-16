@@ -22,7 +22,7 @@ export const Topbar = () => {
 
 
     return (
-        <div className="z-50 font-bold flex items-center justify-around gap-1 p-2   bg-zinc-700 border-b border-gray-200 dark:border-gray-700 rounded no-scrollbar ">
+        <div className=" font-bold flex items-center justify-around gap-1 p-2   bg-zinc-700 border-b border-gray-200 dark:border-gray-700 rounded overflow-auto">
             <div className="ml-5 text-xl text-blue-600 dark:text-blue-400">
                 Codvilla
             </div>

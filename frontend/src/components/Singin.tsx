@@ -30,15 +30,15 @@ export const Signin = () => {
 
   return (
     <>
-        <div>
-          <div className="w-full flex justify-center items-center h-screen gap-10 bg-gray-100">
+        <div className="overflow-hidden bg-zinc-900 text-white">
+          <div className="w-full flex justify-center items-center h-screen gap-10 bg-zinc-900">
                 <div className="gap-4 ">
                 <h1 className="text-4xl font-bold">CODVILLA</h1>
                 </div>
 
 
                 <div className="flex bg-grey g-10">
-                    <div className="bg-white p-8 rounded shadow-lg w-full max-w-md">
+                    <div className="bg-zinc-800 p-8 rounded shadow-lg w-full max-w-md">
                       <h1 className="text-2xl font-bold mb-4 text-center">Login to continue with Codvilla</h1>
                       <button
                         onClick={onSignin}
